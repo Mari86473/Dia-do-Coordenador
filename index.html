@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homenagem ao Melhor Coordenador!</title>
+ <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border-bottom: 5px solid #ffcc00;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .container {
+            width: 100%;
+            padding: 1rem;
+        }
+        
+        .timeline {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem 1rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .timeline h5 {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #666;
+        }
+        
+        .timeline-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .timeline-year {
+            background-color: #ffcc00;
+            color: #333;
+            font-weight: bold;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #2575fc;
+        }
+        
+        .timeline-content p {
+            font-size: 1rem;
+            text-align: justify;
+        }
+        
+        .quote-section {
+            background-color: #e6f7ff;
+            padding: 1.5rem 1rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quote-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #2575fc;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .fun-element {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .fun-element h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .fun-btn {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .fun-btn:hover {
+            background-color: #ff5252;
+        }
+        
+        #joke {
+            font-size: 1.1rem;
+            color: #333;
+            margin-top: 1rem;
+        }
+        .philosophy-section {
+            margin: 1.5rem 0;
+        }
+        
+        .philosophy-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .philosophy-question {
+            background-color: #fffae6;
+            padding: 1.2rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .philosophy-question:hover {
+            background-color: #fff0b3;
+        }
+        
+        .answer {
+            display: none;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .game-section {
+            background-color: white;
+            padding: 1.5rem 1rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .memory-game {
+            display: grid;
+            grid-template-columns: repeat(4, 70px);
+            grid-gap: 8px;
+            margin: 20px auto;
+            justify-content: center;
+        }
+        
+        .memory-card {
+            width: 70px;
+            height: 70px;
+            background-color: #2575fc;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .memory-card.flipped {
+            background-color: #ffcc00;
+            transform: rotateY(180deg);
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background-color: #333;
+            color: white;
+            margin-top: 2rem;
+        }
+        
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Melhorias para telas maiores */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 750px;
+                margin: 0 auto;
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .timeline {
+                padding: 2rem;
+            }
+            
+            .timeline-content p {
+                font-size: 1.1rem;
+            }
+            
+            .memory-game {
+                grid-template-columns: repeat(4, 85px);
+                grid-gap: 10px;
+            }
+            
+            .memory-card {
+                width: 85px;
+                height: 85px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 980px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline-item {
+                display: flex;
+                align-items: flex-start;
+            }
+            
+            .timeline-year {
+                margin-right: 1.5rem;
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+            
+            .memory-game {
+                grid-template-columns: repeat(4, 100px);
+                grid-gap: 12px;
+            }
+            
+            .memory-card {
+                width: 100px;
+                height: 100px;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Uma Homenagem ao Melhor Coordenador!</h1>
+        <p>Do Parque Alvorada ao Parque Piauí, uma longa jornada!</p>
+    </header>
+    
+    <div class="container">
+        <div class="timeline">
+            <h2>Sua Linha do Tempo</h2>
+            <h5>Talvez tenha algumas incoerências devido à minha memória desses anos, mas tentei incluir tudo o que sei ou que me marcou.</h5>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <div class="timeline-content">
+                    <h3>O Início de Tudo</h3>
+                    <p>Você começou a trabalhar como professor no IDB, unidade Parque Alvorada. Entrou quando tudo era mato com a expectativa de emagrecer e ter um bom retorno financeiro. Infelizmente, mesmo que eu tenha entrado no mesmo ano, não tive a chance de ver suas aulas presencialmente e, sendo sincera, não lembro de nada das online. Mas sei que sempre foi muito dedicado ao trabalho desde que entrou e, se não me falha a memória, foi o mesmo ano em que ganhou sua filha, a Luna Maria, que é praticamente a cópia do pai visualmente falando. Em resumo, pelo que me contou, 2020 foi um ano de grandes mudanças em sua vida.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2021</div>
+                <div class="timeline-content">
+                    <h3>Professor</h3>
+                    <p>Até o meio do ano, tive aulas online devido à Covid, mas com minha volta às aulas presenciais, no segundo semestre, tive a chance de vê-lo de perto atuando na área. Sempre muito dedicado e engraçado, desde aquele ano comecei a considerá-lo um dos meus professores preferidos (1° o senhor, 2° David, 3° Paula) pelo amor que parecia ter pela profissão e pela forma como tratava os alunos. Mas é claro que, apesar de ser engraçado, tinha que botar ordem na sala às vezes, mesmo que fosse raro. Quando ficava bravo, lembro que dava um sermão que fazia todos os alunos calarem a boca e repensarem as ações. Foi nesse ano que conheci a frase que virou seu bordão: "não confunda liberdade com libertinagem". Fico meio confusa sobre o que vou dizer agora, pois não lembro com exatidão os anos em que acontecia, mas algo legal que o senhor fazia e que senti falta nos anos seguintes era o seu costume de ficar sentado nos banquinhos pretos com manchinhas brancas em frente ao portão de entrada antes de começar a ir para a sala dos professores na maioria dos intervalos. Como eu não tive amigos no 7° e no 8° às vezes ficava sozinha (por querer, fiz amigos depois), eu gostava de me sentar com o senhor e/ou outros professores para ouvir as fofocas e conversas sobre a escola ou vida pessoal. Ainda me lembro da vez que o senhor estava sentado comigo na mesma mesa durante um intervalo comendo banana ou biscoito (memória ruim 😅) e me ofereceu um pedaço. Acho que isso foi em 2021, pois lembro que na época era somente professor. Posso não lembrar das conversas, mas lembro que era bom, pois era calmo, uma boa compania, alunos mais quietos ou que não tem muitos amigos gostam.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2022</div>
+                <div class="timeline-content">
+                    <h3>Professor e Coordenador</h3>
+                    <p>Duas funções, o dobro de trabalho, mas mesmo assim soube gerir tudo perfeitamente, dando aulas engraçadas, didáticas e, posso estar enganada devido ao tempo que se passou, mas além disso dava umas "leves" ajudinhas nas provas às vezes. Algumas das coisas que eu mais achava aleatória e diferente (no bom sentido) no senhor era deixar os alunos se sentarem ao seu lado durante as aulas (apesar de eu me sentar quase sempre ao lado dos professores no 9° devido ao formato das novas mesas me permitir fazer isso sem atrapalhar, foi o único que nos deixava ficar mais próximo do que o normal antes). Alguns alunos, tipo eu ou a Camila, às vezes pegávamos a nossa cadeira e deixávamos ao lado da sua mesa para acompanhar o conteúdo ou só encher seu saco e deixar o horário mais engraçado mesmo.</p>
+                </div>
+            </div>
+      
+            <div class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <div class="timeline-content">
+                    <h3>Foco na Coordenação</h3>
+                    <p>Dedicando-se totalmente a coordenar, deixou de dar aulas. Aí conheci a Eliane, uma ótima professora, dedicada e que adorava uma fofoca ou falar da vida pessoal nas aulas (minha turma às vezes distraía ela com isso para ter menos assunto de biologia), mas ela não conseguiu substituir o senhor, mesmo sendo muito boa. Mesmo tendo ficado mais afastado das salas, foi o ano em que mais conversei e fiz amizade com o senhor. Percebi que costumava ajudar os alunos conversando e dando conselhos às vezes, então mesmo tendo psicóloga/LIV na escola (não lembro como chamavam) o procurei por ser quem eu via como mais confiável para contar coisas pessoais, tanto pelo tempo que o conhecia quanto pelos outros alunos que o procuravam para conversar e também gostavam. Sei que deve lembrar que eu fazia muita pergunta meio boba, era meio doida ou problemática (às vezes bastante) e levava alguns assuntos bobos a sério demais quando ia conversar com o senhor, mas eu gostava realmente de ir. No começo era sobre aquela história maluca em relação ao David (eu era meio doida, mas melhorei 😅) porque eu queria ouvir sua opinião e ter conselhos sobre o assunto. Depois eu comecei a procurar o senhor para conversar sobre outras coisas, desde as perguntas aleatórias em relação à sua vida ou só para conversar de boa e obter a sua opinião em relação a assuntos diferentes. Durante o final desse ano, lembro que comecei a ficar mais um pouco no IDB para conversar mais após a saída (na maioria das vezes só encher seu saco 😅). Inclusive ainda lembro da vez em que fiquei até 3h da tarde conversando com o senhor na recepção do colégio sobre coisas aleatórias, pois o senhor e a Iziara estavam esperando aquelas visitas de pais que pensavam em matricular os filhos no IDB, se não me engano. Em resumo, mesmo sendo o ano que em teoria ficaria mais afastado dos alunos por não dar aula, foi o ano em que mais tive contato com o senhor. Foi divertido e eu praticamente o considerava meu 2° pai, pois transmitia confiança, respeito, era divertido e dava conselhos sobre diferentes assuntos, mesmo nos mais loucos que eu inventava. Podia conversar sobre qualquer coisa e sempre arrumava um tempinho para isso. No fim do ano, fiquei com bastante saudade, pois sabia que logo quase não iria ver o senhor pessoalmente por ser meu último ano no IDB. As mangas que eu levava em agosto ou setembro e o saquinho de bombons que levei para o senhor no último mês de aula (se é que lembra) foram, mesmo que pequenos, presentes para agradecer pelos longos anos em que trabalhou no IDB desde que entramos em 2020, pois o senhor foi uma ótima pessoa em todos aqueles 4 anos, seja como professor, coordenador, amigo ou pai 2.0 (uma forma de falar que é de consideração) e o fato de ter paciência e saber dialogar sobre diferentes assuntos com os alunos são caracteristicas suas que permitem que o senhor possa ajudar e encaminhar diferentes alunos para um bom caminho, tipo falando sobre assuntos aleatórios como falava comigo ou sobre assuntos mais sérios relacionados a outros alunos.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2024</div>
+                <div class="timeline-content">
+                    <h3>Foco na Coordenação</h3>
+                    <p>Durante esse ano, confesso que não sei direito como foi a sua jornada de trabalho. Em 2023 era um ótimo coordenador, de quem sempre ouvi falarem bem, mas por eu ter entrado no ensino médio em 2024, perdi a proximidade com o IDB e com o senhor. Mas devido às visitas que me deixava fazer, o Instagram do IDB e as minhas conversas online, tenho a ideia de que o seu trabalho foi muito bem feito e mesmo depois de eu sair de lá não deixou de manter contato, o que foi muito bom, pois era uma boa compania (mesmo longe), dava conselhos e me permitia dar uma visitada no IDB às vezes, o que era bem legal, pois além de ver a escola e os professores, eu podia ver o senhor de novo.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2025</div>
+                <div class="timeline-content">
+                    <h3>Novos Horizontes</h3>
+                    <p>Agora o senhor trabalha na unidade Parque Piauí. Tenho certeza de que, com base no que sei, deve estar sendo um ótimo coordenador e agora até mais feliz, pois pode ficar mais próximo da Luna Maria no trabalho e fica mais próximo da sua casa. Sobre sua jornada de trabalho, não tenho muito o que dizer por eu não estar presente nele para falar com base no que eu via ou ouvia igual em 2021, 2022 e 2023, mas tenho certeza de uma coisa: o senhor é e sempre será um ótimo coordenador e professor, divertido, responsável, com uma ótima didática, prestativo e que faz o ambiente ficar mais alegre. Quando vê um aluno triste, não ignora como outros, o senhor vai e ajuda, seja com uma palavra amiga, fazendo rir ou com seus conselhos, mesmo que o assunto não seja sério. Com base em tudo o que vivi no IDB e o que ouvi falarem do senhor, digo com certeza que a sua trajetória nas duas unidades é lotada de carinho, resiliência e amor pela profissão que escolheu. Espero que continue assim, sendo sempre essa ótima pessoa que conheci. Feliz dia do coordenador pedagógico, pois sei o quanto se esforça para exercer essa profissão e o quanto se importa com os alunos que tem ou teve. É o melhor coordenador e professor que eu já tive.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quote-section">
+            <h2>Pensamentos Filosóficos para um Coordenador pensar no Dia do Coordenador</h2>
+            <p class="quote">"Não confunda liberdade com libertinagem."</p>
+            <p class="quote">"Educar não é apenas transmitir conhecimento, é inspirar transformação."</p>
+            <p class="quote">"O verdadeiro coordenador não apenas guia, mas também aprende com sua equipe."</p>
+            <p class="quote">"Na educação, cada desafio é uma oportunidade disfarçada de problema."</p>
+        </div>
+        
+<div class="fun-element">
+    <h2>Momento Descontração</h2>
+    <button class="fun-btn" onclick="showJoke()">Clique para uma piada educacional!</button>
+    <p id="joke"></p>
+</div>
+
+<div class="philosophy-section">
+    <h2>Perguntas Filosóficas para um Coordenador</h2>
+    
+    <div class="philosophy-question" onclick="toggleAnswer(0)">
+        Se um aluno cola na prova de filosofia, ele está praticando plágio ou apenas seguindo a máxima "penso, logo copio"?
+    </div>
+    <div class="answer" id="answer0">
+        Na verdade, ele está demonstrando habilidades de pesquisa avançada, mas com sérias deficiências em ética acadêmica!
+    </div>
+    
+    <div class="philosophy-question" onclick="toggleAnswer(1)">
+        O que veio primeiro: o professor ou o coordenador?
+    </div>
+    <div class="answer" id="answer1">
+        Na sua trajetória, ficou claro que primeiro veio o professor inspirador, que depois se tornou o coordenador excepcional!
+    </div>
+    
+    <div class="philosophy-question" onclick="toggleAnswer(2)">
+        Se a mitocôndria é a usina da célula, por que ela não faz greve como as usinas de verdade?
+    </div>
+    <div class="answer" id="answer2">
+        Porque ela tem ética profissional! Além do mais, se parar de trabalhar, a célula vira um "blackout" ambulante!
+    </div>
+    
+    <div class="philosophy-question" onclick="toggleAnswer(3)">
+        A mitocôndria é a usina da célula, mas quem paga a conta de energia?
+    </div>
+    <div class="answer" id="answer3">
+        A glicose, é claro! E ainda reclama quando é quebrada no processo de respiração celular.
+    </div>
+    
+    <div class="philosophy-question" onclick="toggleAnswer(4)">
+        Por que os adolescentes do fundamental 2 acham que a sala de aula é tipo Netflix - podem dar pausa no professor e voltar quando quiserem?
+    </div>
+    <div class="answer" id="answer4">
+        Porque acreditam piamente que a função "skip intro" também se aplica às explicações dos conteúdos mais complexos!
+    </div>
+    
+    <div class="philosophy-question" onclick="toggleAnswer(5)">
+        Por que a fotossíntese é o processo mais otimista da biologia?
+    </div>
+    <div class="answer" id="answer5">
+        Porque ela sempre vê o copo meio cheio de dióxido de carbono e decide transformá-lo em oxigênio!
+    </div>
+    
+    <div class="philosophy-question" onclick="toggleAnswer(6)">
+        Se Aristóteles fosse aluno do fundamental 2, ele faria a pergunta "por quê?" para tudo?
+    </div>
+    <div class="answer" id="answer6">
+        Com certeza! E provavelmente receberia a resposta clássica: "Porque sim, agora faz a atividade!"
+    </div>
+    
+    <div class="philosophy-question" onclick="toggleAnswer(7)">
+        A divisão celular é a versão biológica de "ctrl+c, ctrl+v"?
+    </div>
+    <div class="answer" id="answer7">
+        Sim, mas com checksum incluso para evitar erros de replicação... na maioria das vezes!
+    </div>
+    
+    <div class="philosophy-question" onclick="toggleAnswer(8)">
+        Se Sócrates fosse coordenador, seu método maiêutico funcionaria nas reuniões pedagógicas?
+    </div>
+    <div class="answer" id="answer8">
+        Ele certamente faria perguntas incômodas até os professores descobrirem que já sabiam as respostas que procuravam!
+    </div>
+</div>
+        
+        <div class="game-section">
+            <h2>Jogo da Memória Educacional</h2>
+            <p>Encontre os pares de conceitos pedagógicos!</p>
+            <div class="memory-game" id="memory-game">
+                <!-- As cartas serão geradas pelo JavaScript -->
+            </div>
+            <button onclick="resetMemoryGame()">Reiniciar Jogo</button>
+            <p id="game-status"></p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Desenvolvido com gratidão por uma ex-aluna do Instituto Dom Bosco</p>
+        <p>Parque Alvorada - Parque Piauí | 2020 - 2025</p>
+    </footer>
+
+    <script>
+        // Piadas educacionais
+        const jokes = [
+           "Dois negros estão em um caro, quem está dirigindo? A polícia!",
+            "Por que o professor de matemática foi preso? Porque dava muito problema para os alunos!",
+            "O que o lápis disse para o papel? Deixa eu te contar um conto!",
+            "Por que o livro de matemática se suicidou? Porque tinha muitos problemas!",
+            "Qual é a fórmula da água? H2O. Qual é a fórmula da água benta? H2O amém!",
+            "Por que os professores não gostam do oceano? Porque tem muitas correntes!",
+            "O que o zero disse para o oito? Belo cinto!"
+        ];
+        
+        function showJoke() {
+            const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+            document.getElementById('joke').textContent = randomJoke;
+        }
+        
+        // Perguntas filosóficas
+        function toggleAnswer(index) {
+            const answer = document.getElementById('answer' + index);
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+            } else {
+                answer.style.display = 'block';
+            }
+        }
+        
+        // Jogo da Memória
+const memoryValues = [
+    '📚', '📗', '🎓', '✏️', '📝', '🧮', '🔬', '📵',
+    '🍎', '🏫', '👩‍🏫', '🧪', // Novos emojis adicionados
+    '📚', '📗', '🎓', '✏️', '📝', '🧮', '🔬', '📵',
+    '🍎', '🏫', '👩‍🏫', '🧪'  // Pares dos novos emojis
+];
+        let memoryGameId = document.getElementById('memory-game');
+        let cardsFlipped = [];
+        let matchedPairs = 0;
+        
+        function initializeMemoryGame() {
+            // Embaralhar as cartas
+            const shuffledValues = [...memoryValues].sort(() => Math.random() - 0.5);
+            
+            // Criar as cartas
+            memoryGameId.innerHTML = '';
+            shuffledValues.forEach((value, index) => {
+                const card = document.createElement('div');
+                card.className = 'memory-card';
+                card.dataset.value = value;
+                card.dataset.index = index;
+                card.textContent = '?';
+                card.addEventListener('click', flipCard);
+                memoryGameId.appendChild(card);
+            });
+        }
+        
+        function flipCard() {
+            if (cardsFlipped.length < 2 && !this.classList.contains('flipped') && !cardsFlipped.includes(this)) {
+                this.classList.add('flipped');
+                this.textContent = this.dataset.value;
+                cardsFlipped.push(this);
+                
+                if (cardsFlipped.length === 2) {
+                    checkForMatch();
+                }
+            }
+        }
+        
+        function checkForMatch() {
+            const [card1, card2] = cardsFlipped;
+            
+            if (card1.dataset.value === card2.dataset.value) {
+                // Par encontrado
+                matchedPairs++;
+                cardsFlipped = [];
+                
+                if (matchedPairs === memoryValues.length / 2) {
+                    document.getElementById('game-status').textContent = 'Parabéns! Você completou o jogo!';
+                }
+            } else {
+                // Não é par, virar de volta
+                setTimeout(() => {
+                    card1.classList.remove('flipped');
+                    card2.classList.remove('flipped');
+                    card1.textContent = '?';
+                    card2.textContent = '?';
+                    cardsFlipped = [];
+                }, 1000);
+            }
+        }
+        
+        function resetMemoryGame() {
+            cardsFlipped = [];
+            matchedPairs = 0;
+            document.getElementById('game-status').textContent = '';
+            initializeMemoryGame();
+        }
+        
+        // Inicializar o jogo quando a página carregar
+        window.onload = function() {
+            initializeMemoryGame();
+        };
+    </script>
+    </body>
+</html>
